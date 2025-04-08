@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Grade Calculator</h1>
+        <form method="POST">
+            <label>Enter scores (comma-separated):</label><br>
+            <input type="text" name="scores" placeholder="e.g. 85, 90, 78" required><br>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if average %}
+            <div class="results">
+                <p><strong>Scores:</strong> {{ scores }}</p>
+                <p><strong>Average:</strong> {{ average }}</p>
+                <p><strong>Highest:</strong> {{ highest }}</p>
+                <p><strong>Lowest:</strong> {{ lowest }}</p>
+                <p><strong>Final Grade:</strong> {{ final_grade }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
